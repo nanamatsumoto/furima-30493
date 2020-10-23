@@ -28,7 +28,7 @@ has_many :purchases
 | price             | integer    | null: false                    |
 | region_id         | integer    | null: false                    |
 | shipping_date_id  | integer    | null: false                    |
-| user_id           | references | null: false, foreign_key: true |
+| user              | references | null: false, foreign_key: true |
 | introduction      | text       | null: false                    |
 
 belongs_to :user
@@ -57,9 +57,9 @@ has_one :addresses
 | post_code      | string     | null: false                    |
 | prefectures    | integer    | null: false                    |
 | city           | string     | null: false                    |
-| house_number   | staring    | null: false                    |
+| house_number   | string     | null: false                    |
 | building_name  | string     |                                |
-| phone_number   | string     | null: false,unique:true     |
+| phone_number   | string     | null: false,unique:true        |
 | purchase       | references | null: false, foreign_key: true |
 
 belongs_to :purchase
