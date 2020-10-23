@@ -16,27 +16,28 @@
 
 has_many :items
 has_many :purchases
-has_many :addresses
-
 
 ##items テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| name           | string     | null: false                    |
-| category_id    | integer    | null: false                    |
-| condition_id   | integer    | null: false                    |
-| postage        | integer    | null: false                    |
-| price          | integer    | null: false                    |
-| region         | integer    | null: false                    |
-| shipping_date  | integer    | null: false                    |
-| user_id        | references | null: false, foreign_key: true |
-| introduction   | text       | null: false                    |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| name              | string     | null: false                    |
+| category_id       | integer    | null: false                    |
+| condition_id      | integer    | null: false                    |
+| postage_id        | integer    | null: false                    |
+| price             | integer    | null: false                    |
+| region_id         | integer    | null: false                    |
+| shipping_date_id  | integer    | null: false                    |
+| user_id           | references | null: false, foreign_key: true |
+| introduction      | text       | null: false                    |
 
 belongs_to :user
 belongs_to_active_hash :category
 belongs_to_active_hash :condition
-
+belongs_to_active_hash :postage
+belongs_to_active_hash :region
+belongs_to_active_hash :shipping_date
+has_one :addresses
 
 ##purchases
 
@@ -44,7 +45,6 @@ belongs_to_active_hash :condition
 | -------------- | ---------- | ------------------------------ |
 | item           | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
-| buyer_id       | references | null: false, foreign_key: true |
 
 belongs_to :user
 belongs_to :item
@@ -62,4 +62,4 @@ has_one :addresses
 | phone_number   | string     | null: false,unique:true     |
 | purchase       | references | null: false, foreign_key: true |
 
-belongs_to :purchases
+belongs_to :purchase
