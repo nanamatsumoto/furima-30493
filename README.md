@@ -30,11 +30,12 @@ has_many :addresses
 | price          | integer    | null: false                    |
 | region         | integer    | null: false                    |
 | shipping_date  | integer    | null: false                    |
-| seler_id       | references | null: false, foreign_key: true |
-| introduction   | text       | null* false                    |
+| user_id        | references | null: false, foreign_key: true |
+| introduction   | text       | null: false                    |
 
 belongs_to :user
-belongs_to :category
+belongs_to_active_hash :category
+belongs_to_active_hash :condition
 
 
 ##purchases
@@ -46,18 +47,19 @@ belongs_to :category
 | buyer_id       | references | null: false, foreign_key: true |
 
 belongs_to :user
+belongs_to :item
 has_one :addresses
 
 ## addresses
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| post_code      | string     | null: false,                   |
-| perfectures    | intege     | null: false, foreign_key: true |
-| city           | string     | null: false,                   |
-| building_name  | string     | null: false,                   |
-| phone_number   | string     | null: false,uniquenss:true     |
+| post_code      | string     | null: false                    |
+| prefectures    | integer    | null: false                    |
+| city           | string     | null: false                    |
+| house_number   | staring    | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false,unique:true     |
 | purchase       | references | null: false, foreign_key: true |
 
-belongs_to :user
-has_one :purchases
+belongs_to :purchases
