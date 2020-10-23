@@ -34,10 +34,8 @@ has_many :purchases
 belongs_to :user
 belongs_to_active_hash :category
 belongs_to_active_hash :condition
-belongs_to_active_hash :postage
-belongs_to_active_hash :region
-belongs_to_active_hash :shipping_date
 has_one :addresses
+has_one :purchases
 
 ##purchases
 
@@ -55,7 +53,7 @@ has_one :addresses
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefectures    | integer    | null: false                    |
+| prefectures_id | integer    | null: false                    |
 | city           | string     | null: false                    |
 | house_number   | string     | null: false                    |
 | building_name  | string     |                                |
