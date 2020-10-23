@@ -34,7 +34,9 @@ has_many :purchases
 belongs_to :user
 belongs_to_active_hash :category
 belongs_to_active_hash :condition
-has_one :address
+belongs_to_active_hash :postage	
+belongs_to_active_hash :region	
+belongs_to_active_hash :shipping_date
 has_one :purchase
 
 ##purchases
