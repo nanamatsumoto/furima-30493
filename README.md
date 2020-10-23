@@ -34,8 +34,8 @@ has_many :purchases
 belongs_to :user
 belongs_to_active_hash :category
 belongs_to_active_hash :condition
-has_one :addresses
-has_one :purchases
+has_one :address
+has_one :purchase
 
 ##purchases
 
@@ -46,7 +46,7 @@ has_one :purchases
 
 belongs_to :user
 belongs_to :item
-has_one :addresses
+has_one :address
 
 ## addresses
 
