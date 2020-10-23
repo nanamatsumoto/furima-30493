@@ -14,6 +14,11 @@
 | first_name_kana| string | null: false |
 | birth_date     | date   | null: false |
 
+has_many :items
+has_many :purchases
+has_many :addresses
+
+
 ##items テーブル
 
 | Column         | Type       | Options                        |
@@ -28,6 +33,10 @@
 | seler_id       | references | null: false, foreign_key: true |
 | introduction   | text       | null* false                    |
 
+belongs_to :user
+belongs_to :category
+
+
 ##purchases
 
 | Column         | Type       | Options                        |
@@ -35,6 +44,9 @@
 | item           | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
 | buyer_id       | references | null: false, foreign_key: true |
+
+belongs_to :user
+has_one :addresses
 
 ## addresses
 
@@ -46,3 +58,6 @@
 | building_name  | string     | null: false,                   |
 | phone_number   | string     | null: false,uniquenss:true     |
 | purchase       | references | null: false, foreign_key: true |
+
+belongs_to :user
+has_one :purchases
