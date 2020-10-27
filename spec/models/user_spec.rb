@@ -86,16 +86,23 @@ RSpec.describe 'ユーザー新規登録', type: :model do
         end
 
         it "パスワードは、半角英数字混合での入力が必須である" do
-          @user.password = "nnnn11"
-          @user.valid?
           expect(@user).to be_valid
         end
 
+        it "パスワードは、半角英数字混合での入力でない場合、無効である" do
+          @user.password = "nnnnnn"
+          @user.valid?
+          expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        end
         it "パスワードとパスワード（確認用）、不一致では登録できない" do
           @user.password = "nnnn11"
           @user.password_confirmation = "nnnn111"
           @user.valid?
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        end
+
+        it "ユーザー本名のフリガナは、全角（カタカナ）での入力が必須であること" do
+          expect(@user).to be_valid
         end
       end
     end
