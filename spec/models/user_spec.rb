@@ -101,9 +101,13 @@ RSpec.describe 'ユーザー新規登録', type: :model do
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
         end
 
-        it "ユーザー本名のフリガナは、全角（カタカナ）での入力が必須であること" do
-           @user.first_name_kana = "あいうえお"
+        it "姓(カナ)は、全角（カタカナ）での入力が必須であること" do
            @user.last_name_kana = "あいうえお"
+           @user.valid?
+           expect(@user.errors.full_messages).to include("Last name kana is invalid")
+        end
+        it "名(カナ)は、全角（カタカナ）での入力が必須であること" do
+           @user.first_name_kana = "あいうえお"
            @user.valid?
            expect(@user.errors.full_messages).to include("First name kana is invalid")
         end
