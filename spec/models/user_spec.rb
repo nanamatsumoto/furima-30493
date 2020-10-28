@@ -62,13 +62,13 @@ RSpec.describe 'ユーザー新規登録', type: :model do
           expect(@user.errors.full_messages).to include("Birth date can't be blank")
         end
 
-        it "姓(カナ)が平仮名の場合無効" do
+        it "姓(カナ)が入力されていない場合無効" do
           @user.last_name_kana = ""
           @user.valid?
           expect(@user.errors.full_messages).to include("Last name kana can't be blank")
         end
 
-        it "名(カナ)が平仮名の場合無効" do
+        it "名(カナ)が入力されていない場合無効" do
           @user.first_name_kana = ""
           @user.valid?
           expect(@user.errors.full_messages).to include("First name kana can't be blank")
