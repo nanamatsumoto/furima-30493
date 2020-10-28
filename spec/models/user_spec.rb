@@ -85,7 +85,7 @@ RSpec.describe 'ユーザー新規登録', type: :model do
           @user.valid?
         end
 
-        it "パスワードは、半角英数字混合での入力が必須である" do
+        it "全ての値が揃っている時に保存できる" do
           expect(@user).to be_valid
         end
 
@@ -99,10 +99,6 @@ RSpec.describe 'ユーザー新規登録', type: :model do
           @user.password_confirmation = "nnnn111"
           @user.valid?
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-        end
-
-        it "ユーザー本名のフリガナは、全角（カタカナ）での入力が必須であること" do
-          expect(@user).to be_valid
         end
       end
     end
