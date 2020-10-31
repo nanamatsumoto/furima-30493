@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage
   belongs_to_active_hash :region
   belongs_to_active_hash :shipping_date
+  belongs_to :user
+  has_one :purchase
 
   validates :image, presence: true
   validates :title, presence: true
@@ -14,8 +16,7 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
   validates :condition_id, presence: true
   validates :postage_id, presence: true
-  validates :price, presence: true
   validates :region_id, presence: true
   validates :shipping_date_id, presence: true
-  validates :user_id, presence: true
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
 end
