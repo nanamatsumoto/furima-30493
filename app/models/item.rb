@@ -13,10 +13,13 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :title, presence: true
   validates :text, presence: true
-  validates :category_id, presence: true
-  validates :condition_id, presence: true
-  validates :postage_id, presence: true
-  validates :region_id, presence: true
-  validates :shipping_date_id, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
+
+  with_options numericality: { other_than: 0 } do
+    validates :category_id, presence: true
+    validates :condition_id, presence: true
+    validates :postage_id, presence: true
+    validates :region_id, presence: true
+    validates :shipping_date_id, presence: true
+  end
 end
