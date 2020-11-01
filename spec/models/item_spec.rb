@@ -25,33 +25,34 @@ RSpec.describe Item, type: :model do
       end
       
       it "カテゴリーの情報がない場合無効" do
-        @item.category_id = ""
+        @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
 
       it "商品の状態についての情報がない場合無効" do
-        @item.condition_id = ""
+        @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition can't be blank")
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
 
       it "配送料の負担についての情報がない場合無効" do
-        @item.postage_id = ""
+        @item.postage_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage can't be blank")
+        expect(@item.errors.full_messages).to include("Postage must be other than 0")
       end
 
       it "発送元の地域についての情報がない場合無効" do
-        @item.region_id = ""
+        @item.region_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Region can't be blank")
+        expect(@item.errors.full_messages).to include("Region must be other than 0")
       end
 
       it "発送までの日数についての情報がない場合無効" do
-        @item.shipping_date_id = ""
+        @item.shipping_date_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+        binding.pry
+        expect(@item.errors.full_messages).to include("Shipping date must be other than 0")
       end
 
       it "価格についての情報がない場合無効" do
