@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new]
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_item, only: [:edit, :show, :update]
 
   def index
@@ -45,4 +45,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
    end
+
 end
