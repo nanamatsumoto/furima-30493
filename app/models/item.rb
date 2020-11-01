@@ -23,3 +23,4 @@ class Item < ApplicationRecord
     validates :shipping_date_id, presence: true
   end
 end
+
