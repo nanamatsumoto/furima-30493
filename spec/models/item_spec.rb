@@ -51,7 +51,6 @@ RSpec.describe Item, type: :model do
       it "発送までの日数についての情報がない場合無効" do
         @item.shipping_date_id = 0
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include("Shipping date must be other than 0")
       end
 
