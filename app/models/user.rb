@@ -8,7 +8,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :birth_date
     validates :email
-  end
+  end 
     validates :last_name, :first_name, presence: true, 
               format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/ }
     validates :last_name_kana, :first_name_kana, presence: true, 

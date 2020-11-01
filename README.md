@@ -21,7 +21,7 @@ has_many :purchases
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| name              | string     | null: false                    |
+| title             | string     | null: false                    |
 | category_id       | integer    | null: false                    |
 | condition_id      | integer    | null: false                    |
 | postage_id        | integer    | null: false                    |
@@ -29,7 +29,7 @@ has_many :purchases
 | region_id         | integer    | null: false                    |
 | shipping_date_id  | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
-| introduction      | text       | null: false                    |
+| text              | text       | null: false                    |
 
 belongs_to :user
 belongs_to_active_hash :category
