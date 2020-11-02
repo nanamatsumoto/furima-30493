@@ -23,15 +23,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return redirect_to root_path if current_user.id != @item.user_id
+    redirect_to root_path if current_user.id != @item.user_id
   end
 
   def destroy
   end
 
   def update
-    @item.update(item_params)
-    if 
+    if @item.update(item_params)
       redirect_to @item
     else
       render :edit
