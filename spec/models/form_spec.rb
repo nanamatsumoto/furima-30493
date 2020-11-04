@@ -12,7 +12,7 @@ RSpec.describe Form, type: :model do
   it "post_codeが空では保存ができないこと" do
     @form.post_code = ""
     @form.valid?
-    expect(@form.errors.full_messages).to include("Purchase can't be blank")
+    expect(@form.errors.full_messages).to include("Post code can't be blank")
   end
 
   it "prefectures_idが空では保存ができないこと" do
@@ -43,7 +43,7 @@ RSpec.describe Form, type: :model do
   it "phone_numberが空では保存ができないこと" do
     @form.building_name = ""
     @form.valid?
-    expect(@form.errors.full_messages).to include("Purchase can't be blank")
+    expect(@form.errors.full_messages).to include("Building name can't be blank")
   end
 
 end
