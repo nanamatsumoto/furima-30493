@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     # @form = Item.form.includes(:item)
     @form = Form.new(form_params)
     if @form.save
