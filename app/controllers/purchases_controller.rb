@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    binding.pry
     # @form = Item.form.includes(:item)
     @form = Form.new(form_params)
     if @form.save
@@ -17,6 +18,6 @@ class PurchasesController < ApplicationController
   private
 
   def form_params
-    params.require(:form).permit(:post_code, :prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id)
+    params.require(:form).permit(:post_code, :prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id).merge(token: params[:token])
   end
 end
