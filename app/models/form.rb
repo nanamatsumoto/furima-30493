@@ -1,7 +1,6 @@
 class Form
-  attr_accessor :token
   include ActiveModel::Model
-  attr_accessor :post_code,:prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id
+  attr_accessor :post_code,:prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id, token
 
   with_options presence: true do
     validates :post_code
