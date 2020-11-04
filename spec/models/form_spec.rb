@@ -6,7 +6,6 @@ RSpec.describe Form, type: :model do
   end
   
   it "全てが入力されていたら保存ができること" do
-    binding.pry
     expect(@form).to be_valid
   end
 

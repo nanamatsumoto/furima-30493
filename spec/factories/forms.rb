@@ -9,7 +9,7 @@ FactoryBot.define do
     phone_number {00000000000}
     user_id {1}
     item_id {1}
-    purchase.id {1}
+    purchase {1}
 
   end
 end
