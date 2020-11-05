@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   # before_action :authenticate_user!, only: [:index]
 
   def index
-    # redirect_to root_path if current_user.id == @item.user_id
     @form = Form.new
   end
 
