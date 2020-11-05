@@ -4,7 +4,7 @@ class Form
 
   with_options presence: true do
     validates :post_code
-    validates :prefectures_id
+    validates :prefectures_id, numericality: { other_than: 1 }
     validates :city
     validates :house_number
     validates :phone_number
