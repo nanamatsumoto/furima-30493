@@ -34,16 +34,10 @@ RSpec.describe Form, type: :model do
     expect(@form.errors.full_messages).to include("House number can't be blank")
   end
 
-  it "building_nameが空では保存ができないこと" do
-    @form.building_name = ""
-    @form.valid?
-    expect(@form.errors.full_messages).to include("Building name can't be blank")
-  end
-
   it "phone_numberが空では保存ができないこと" do
-    @form.building_name = ""
+    @form.phone_number = ""
     @form.valid?
-    expect(@form.errors.full_messages).to include("Building name can't be blank")
+    expect(@form.errors.full_messages).to include("Phone number can't be blank")
   end
 
   it "tokenが空では登録できないこと" do

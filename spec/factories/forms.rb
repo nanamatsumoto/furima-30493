@@ -6,7 +6,7 @@ FactoryBot.define do
     city {"aあア"}
     house_number {"aあア"}
     building_name {"aあア"}
-    phone_number {00000000000}
+    phone_number {11111111111}
     user_id {1}
     item_id {1}
     purchase {1}
