@@ -7,11 +7,9 @@ class Form
     validates :prefectures_id
     validates :city
     validates :house_number
-    # validates :building_name
     validates :phone_number
     validates :user_id
     validates :item_id
-    # validates :purchase
     validates :token
   end
 
