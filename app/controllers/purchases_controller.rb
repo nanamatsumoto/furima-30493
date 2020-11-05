@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   def index
     @form = Form.new
     if  current_user.id && @item.purchase.present?
-      # @item.purchase.user_id.present?
+    else
       redirect_to root_path 
     end
   end
