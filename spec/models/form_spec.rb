@@ -8,6 +8,10 @@ RSpec.describe Form, type: :model do
     @form = FactoryBot.build(:form, item_id: @item.id, user_id: @user.id)
   end
 
+    it "全てが入力されていたら保存ができること" do
+      expect(@item).to be_valid
+    end
+
     it "post_codeが空では保存ができないこと" do
       @form.post_code = ""
       @form.valid?
@@ -17,7 +21,6 @@ RSpec.describe Form, type: :model do
     it "post_codeがハイフンなしでは保存ができないこと" do
       @form.post_code = "1234567"
       @form.valid?
-      binding.pry
       expect(@form.errors.full_messages).to include("Post code is invalid")
     end
 
@@ -69,8 +72,16 @@ RSpec.describe Form, type: :model do
       expect(@form.errors.full_messages).to include("Token can't be blank")
     end
 
-    it "全てが入力されていたら保存ができること" do
-      expect(@form).to be_valid
+    it "user_idが空の場合、保存ができないこと" do
+      @form.user_id = nil
+      @form.valid?
+      expect(@form.errors.full_messages).to include("User can't be blank")
+    end
+
+    it "item_idが空の場合、保存ができないこと" do
+      @form.item_id = nil
+      @form.valid?
+      expect(@form.errors.full_messages).to include("Item can't be blank")
     end
   end
 end

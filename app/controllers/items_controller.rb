@@ -23,7 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if current_user.id && ""
+    if current_user.id && @item.purchase.present?
+      redirect_to root_path 
+    end
   end
 
   def destroy
