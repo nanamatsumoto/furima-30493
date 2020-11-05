@@ -46,4 +46,9 @@ RSpec.describe Form, type: :model do
     expect(@form.errors.full_messages).to include("Building name can't be blank")
   end
 
+  it "tokenが空では登録できないこと" do
+    @form.token = nil
+    @form.valid?
+    expect(@form.errors.full_messages).to include("Token can't be blank")
+  end
 end

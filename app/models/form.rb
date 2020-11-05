@@ -1,17 +1,18 @@
 class Form
   include ActiveModel::Model
-  attr_accessor :post_code,:prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id, token
+  attr_accessor :post_code,:prefectures_id, :city, :house_number, :building_name, :phone_number, :purchase, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :post_code
     validates :prefectures_id
     validates :city
     validates :house_number
-    validates :building_name
+    # validates :building_name
     validates :phone_number
     validates :user_id
     validates :item_id
-    validates :purchase
+    # validates :purchase
+    validates :token
   end
 
   def save
