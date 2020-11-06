@@ -42,4 +42,5 @@ class PurchasesController < ApplicationController
     if current_user.id == @item.user_id or @item.purchase != nil
       redirect_to root_path 
     end
+  end
 end
