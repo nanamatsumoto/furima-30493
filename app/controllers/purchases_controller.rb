@@ -11,6 +11,7 @@ class PurchasesController < ApplicationController
 
   def create
     @form = Form.new(form_params)
+    # binding.pry
     if @form.valid?
       pay_item
       @form.save
