@@ -5,11 +5,11 @@ RSpec.describe Form, type: :model do
   before do
     @item = FactoryBot.build(:item)
     @user = FactoryBot.build(:user)
-    @form = FactoryBot.build(:form, item_id: @item.id, user_id: @user.id)
+    @form = FactoryBot.build(:form, item_id: @item, user_id: @user)
   end
 
     it "全てが入力されていたら保存ができること" do
-      expect(@item).to be_valid
+      expect(@form).to be_valid
     end
 
     it "post_codeが空では保存ができないこと" do
@@ -58,6 +58,11 @@ RSpec.describe Form, type: :model do
       @form.prefectures_id = 1
       @form.valid?
       expect(@form.errors.full_messages).to include("Prefectures must be other than 1")
+    end
+
+    it "building_nameは空でも登録ができる" do
+      @form.building_name = nil
+      expect(@form).to be_valid
     end
 
     it "tokenが空では登録できないこと" do
