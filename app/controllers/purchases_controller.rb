@@ -1,12 +1,10 @@
 class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :authenticate_user!, only: [:index]
-  # before_action :move_to_signed_in, expect: [:index]
 
   def index
     @form = Form.new
-    if  current_user.id && @item.purchase.present?
-    else
+    if current_user.id == @item.user_id or @item.purchase != nil
       redirect_to root_path 
     end
   end
@@ -39,11 +37,5 @@ class PurchasesController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
-   end
-
-  def move_to_signed_in
-    unless user_signed_in?
-      redirect_to root_path
-    end
   end
 end
