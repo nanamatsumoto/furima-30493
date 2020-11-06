@@ -64,3 +64,4 @@ has_one :address
 | purchase       | references | null: false, foreign_key: true |
 
 belongs_to :purchase
+
